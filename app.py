@@ -33,12 +33,12 @@ def get_combined_tickers():
 # 3. 사이드바 메뉴 선택
 with st.sidebar:
     st.markdown('<div class="sidebar-title">🖥️ 분석 모드 선택</div>', unsafe_allow_html=True)
-    mode = st.radio("실행할 검색기를 선택하세요", ["📊 회계적 우량주 (Buffett)", "🔍 일반 우량주 검색 (v2)"])
+    mode = st.radio("실행할 검색기를 선택하세요", ["📊 버핏 모드", "🔍 일반 검색"])
     st.divider()
 
 # --- 모드 1: 회계적 우량주 (Buffett v10) ---
-if mode == "📊 회계적 우량주 (Buffett)":
-    st.markdown('<div class="main-title">🏛️ 회계적 우량주 검색기 (Buffett v10)</div>', unsafe_allow_html=True)
+if mode == "📊 버핏 모드":
+    st.markdown('<div class="main-title">🏛️ 우량주 검색기</div>', unsafe_allow_html=True)
     
     with st.sidebar:
         st.markdown('<div class="sidebar-title">📌 1. 공통 필터</div>', unsafe_allow_html=True)
@@ -95,8 +95,8 @@ if mode == "📊 회계적 우량주 (Buffett)":
         st.dataframe(df.sort_values('raw_margin', ascending=False).drop('raw_margin', axis=1), use_container_width=True)
 
 # --- 모드 2: 일반 우량주 검색 (v2) ---
-elif mode == "🔍 일반 우량주 검색 (v2)":
-    st.markdown('<div class="main-title">🔍 일반 우량주 검색기 (v2)</div>', unsafe_allow_html=True)
+elif mode == "🔍 일반 우량주 검색":
+    st.markdown('<div class="main-title">🔍 일반 우량주 검색기</div>', unsafe_allow_html=True)
     
     with st.sidebar:
         st.markdown('<div class="sidebar-title">⚙️ 투자 필터 설정</div>', unsafe_allow_html=True)
